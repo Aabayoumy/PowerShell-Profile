@@ -5,5 +5,3 @@ Get-ChildItem | where-object {$_.Name -match "^[0-9][0-9]"} | Sort-Object | ForE
   $host.UI.RawUI.WindowTitle = "$i of $ScriptsCount : $_"
   & $_.FullName
 }
-
-cmd /c pause
