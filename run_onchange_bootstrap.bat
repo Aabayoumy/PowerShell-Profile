@@ -1,0 +1,1 @@
+start /wait Powershell.exe -executionpolicy bypass -File  "Scripts\install.ps1"
