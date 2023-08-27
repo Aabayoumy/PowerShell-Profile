@@ -2,3 +2,6 @@
     autoCommit = true
     autoPush = true
     commitMessageTemplate = "{{ promptString \"Commit message\" }}"
+[edit]
+    command = "code"
+    args = ["--wait"]
