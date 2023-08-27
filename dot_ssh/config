@@ -1,0 +1,13 @@
+Host 10.0.0.10
+  HostName 10.0.0.10
+  User abayoumy
+
+Host pi
+  HostName 10.0.0.10
+  User abayoumy
+
+Host pve
+  HostName 10.0.0.200
+  User  abayoumy
+  IdentityFile ~\.ssh\id_ed25519
+
