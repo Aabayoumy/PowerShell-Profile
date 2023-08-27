@@ -4,7 +4,7 @@
 Write-Host "Install Modules if not installed"
 if (-not (Get-Module -Name "PowerShellGet")) {
     Write-Host "Installing PowerShellGet" 
-    Install-Module PowerShellGet  –Force -AllowClobber }
+    Install-Module PowerShellGet  -Force -AllowClobber }
 
 if (-not (Get-Module -Name "PSReadLine ")) {
     Write-Host "Installing PSReadLine " 
