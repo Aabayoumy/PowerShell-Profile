@@ -2,9 +2,18 @@
 # GitHub: https://github.com/Aabayoumy/PS-Profile
 
 Write-Host "Install Modules if not installed"
+if (-not (Get-Module -Name "PowerShellGet")) {
+    Write-Host "Installing PowerShellGet" 
+    Install-Module PowerShellGet  –Force -AllowClobber }
+
+if (-not (Get-Module -Name "PSReadLine ")) {
+    Write-Host "Installing PSReadLine " 
+    Install-Module PSReadLine  -AllowPrerelease -force }
+    
 if (-not (Get-Module -Name "Terminal-Icons")) {
     Write-Host "Installing Terminal-Icons" 
     Install-Module Terminal-Icons -force }
+
 if (-not (Get-Module -Name "z")) {
     Write-Host "Installing z" 
     Install-Module z -force }
