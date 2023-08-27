@@ -8,7 +8,7 @@ if (-not (Get-Module -Name "PowerShellGet")) {
 
 if (-not (Get-Module -Name "PSReadLine ")) {
     Write-Host "Installing PSReadLine " 
-    Install-Module PSReadLine  -AllowPrerelease -force }
+    Install-Module PSReadLine  -AllowPrerelease -force -Scope CurrentUser }
     
 if (-not (Get-Module -Name "Terminal-Icons")) {
     Write-Host "Installing Terminal-Icons" 
@@ -33,11 +33,16 @@ if ($PSVersionTable.OS.ToLower -contains "server" ){
 }else {
     $Packages = 'Microsoft.PowerShell', 'chezmoi', 'Notepad++.Notepad++' , 'microsoft-windows-terminal', 'starship', '7zip', 'openssh' , 'git' , 'nerd-fonts-Ubuntu', 'nerd-fonts-UbuntuMono' , 'nerd-fonts-CascadiaCode' , 'nerd-fonts-FiraCode' , 'nerd-fonts-Hack' , 'nerd-fonts-JetBrainsMono'
 }
-
+$pkgList = choco list
 ForEach ($PackageName in $Packages)
 {
-    Write-Host "Installing $($PackageName)"
-    choco install $PackageName -y --limitoutput --no-progress > $null
+    if ( $pkgList.ToLower -like "*$($PackageName.ToLower)*" ) {
+        Write-Host "$($PackageName) Exist"
+    }
+    else { 
+        Write-Host "Installing $($PackageName)"
+        choco install $PackageName -y --limitoutput --no-progress > $null
+    }
 }
 
 Remove-Item -Path $env:TEMP\* -Recurse -Force -ErrorAction SilentlyContinue
