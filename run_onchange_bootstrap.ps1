@@ -4,7 +4,7 @@
 Write-Host "Install Modules if not installed"
 if (-not (Get-Module -Name "PowerShellGet")) {
     Write-Host "Installing PowerShellGet" 
-    Install-Module PowerShellGet  -Force -AllowClobber }
+    Install-Module PowerShellGet  -Force  -AllowClobber -RequiredVersion 2.2.5 }
 
 if (-not (Get-Module -Name "PSReadLine ")) {
     Write-Host "Installing PSReadLine " 
@@ -16,7 +16,7 @@ if (-not (Get-Module -Name "Terminal-Icons")) {
 
 if (-not (Get-Module -Name "z")) {
     Write-Host "Installing z" 
-    Install-Module z -force }
+    Install-Module z -force  -AllowClobber }
 
 if (-not (Get-Module -Name "Microsoft.WinGet.Client")) {
     Write-Host "Installing Microsoft.WinGet.Client" 
