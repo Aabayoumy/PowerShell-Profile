@@ -28,7 +28,11 @@ if (!(Test-Path -Path "$env:ProgramData\Chocolatey")) {
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 }
 # Install Starship & fonts
-$Packages = 'starship', '7zip', 'openssh' , 'git' , 'nerd-fonts-Ubuntu', 'nerd-fonts-UbuntuMono' , 'nerd-fonts-CascadiaCode' , 'nerd-fonts-FiraCode' , 'nerd-fonts-Hack' , 'nerd-fonts-JetBrainsMono'
+if ($PSVersionTable.OS.ToLower -contains "server" ){
+    $Packages = 'starship', '7zip', 'wezterm', 'Notepad++.Notepad++'
+}else {
+    $Packages = 'Microsoft.PowerShell', 'chezmoi', 'Notepad++.Notepad++' , 'microsoft-windows-terminal', 'starship', '7zip', 'openssh' , 'git' , 'nerd-fonts-Ubuntu', 'nerd-fonts-UbuntuMono' , 'nerd-fonts-CascadiaCode' , 'nerd-fonts-FiraCode' , 'nerd-fonts-Hack' , 'nerd-fonts-JetBrainsMono'
+}
 
 ForEach ($PackageName in $Packages)
 {
