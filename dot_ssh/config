@@ -1,13 +1,34 @@
-Host 10.0.0.10
+Host mediasrv01
   HostName 10.0.0.10
   User abayoumy
 
-Host pi
-  HostName 10.0.0.10
+Host docker01
+  HostName 10.0.0.18
   User abayoumy
 
-Host pve
+Host wazuh
+  HostName 40.112.92.16
+  User GBGSecurityAdmin
+  IdentityFile ~\.ssh\id_ed25519
+  port 5225
+
+Host pve2
+  HostName 10.0.0.202
+  User  root
+  IdentityFile ~\.ssh\id_ed25519
+
+Host pve1
   HostName 10.0.0.200
+  User  root
+  IdentityFile ~\.ssh\id_ed25519
+
+
+Host kali
+  HostName 192.168.1.2
   User  abayoumy
   IdentityFile ~\.ssh\id_ed25519
 
+Host  ubuntu01
+  HostName 172.200.144.174
+  user abayoumy
+  IdentityFile ~\.ssh\id_rsa
